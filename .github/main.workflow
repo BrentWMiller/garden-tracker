@@ -1,4 +1,4 @@
-workflow "Build and Deploy to Firbase" {
+workflow "Build and Deploy to Firebase" {
   on = "push"
   resolves = ["Deploy to Firebase"]
 }
