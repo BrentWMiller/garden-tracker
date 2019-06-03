@@ -1,0 +1,29 @@
+.navigation {
+
+  &__actions {
+    list-style: none;
+  }
+
+  &__action {
+    display: inline-block;
+
+    a, button {
+      margin: 0 15px;
+      padding: 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      background-color: transparent;
+      border: none;
+
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__spacer {
+    flex: 1 1 auto;
+  }
+}

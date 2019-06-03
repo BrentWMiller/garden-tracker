@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" class="navigation">
+  <mat-toolbar-row>
+    <span>Garden Track</span>
+    <span class="navigation__spacer"></span>
+
+    <ul class="navigation__actions">
+
+      <!-- authenticated -->
+      <ng-container *ngIf="authenticated">
+        <li class="navigation__action">
+          <a routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="navigation__action">
+          <button type="button" (click)="logout()">Logout</button>
+        </li>
+      </ng-container>
+
+      <!-- not authenticated -->
+      <ng-container *ngIf="!authenticated">
+        <li class="navigation__action">
+          <a routerLink="/auth/login" routerLinkActive="active">Login</a>
+        </li>
+      </ng-container>
+
+    </ul>
+  </mat-toolbar-row>
+</mat-toolbar>
