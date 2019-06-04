@@ -13,6 +13,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 // modules;
 import { SharedModule } from './shared/shared.module';
+import { PlotterModule } from './plotter/plotter.module';
 
 // routers
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +36,7 @@ import { HomeModule } from './home/home.module';
     SharedModule,
     BrowserAnimationsModule,
     HomeModule,
+    PlotterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
