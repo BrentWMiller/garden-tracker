@@ -5,11 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
-  // {
-  //   path: 'orders',
-  //   loadChildren: './orders/orders.module#OrdersModule',
-  //   canActivate: [AuthGuard]
-  // },
+  {
+    path: 'plotter',
+    loadChildren: './plotter/plotter.module#PlotterModule',
+    canActivate: [AuthGuard]
+  },
   {
     path: 'auth',
     loadChildren: './auth/auth.module#AuthModule'
@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomeModule'
   },
   // Fallback when no prior routes is matched
-  { path: '**', redirectTo: '/', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
