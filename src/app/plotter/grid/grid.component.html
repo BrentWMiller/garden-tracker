@@ -1,7 +1,9 @@
 <div class="grid">
   <div class="grid__boundary">
 
-    <gt-box></gt-box>
+    <gt-box *ngFor="let box of boxes"></gt-box>
     
   </div>
 </div>
+
+<button mat-button type="button" (click)="addBox()">Add Box</button>

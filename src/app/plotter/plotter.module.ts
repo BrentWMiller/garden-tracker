@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
+// modules
+import { SharedModule } from '../shared/shared.module';
+
 // components
 import { GridComponent } from './grid/grid.component';
 import { BoxComponent } from './box/box.component';
@@ -18,10 +21,6 @@ export const ROUTES: Routes = [
 
 @NgModule({
   declarations: [GridComponent, BoxComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(ROUTES),
-    DragDropModule,
-  ]
+  imports: [CommonModule, RouterModule.forChild(ROUTES), SharedModule, DragDropModule],
 })
-export class PlotterModule { }
+export class PlotterModule {}
