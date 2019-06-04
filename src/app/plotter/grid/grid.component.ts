@@ -16,6 +16,8 @@ export class GridComponent implements OnInit {
 
   dragEnd(event: CdkDragEnd) {
     this.currentPosition = { ...(<any>event.source._dragRef)._passiveTransform };
+
+    console.log(this.currentPosition);
   }
 
 }
