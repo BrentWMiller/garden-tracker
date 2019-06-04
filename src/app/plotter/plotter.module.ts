@@ -10,6 +10,9 @@ import { SharedModule } from '../shared/shared.module';
 import { GridComponent } from './grid/grid.component';
 import { BoxComponent } from './box/box.component';
 
+// services
+import { PlotterService } from './plotter.service';
+
 export const ROUTES: Routes = [
   {
     path: '',
@@ -22,5 +25,6 @@ export const ROUTES: Routes = [
 @NgModule({
   declarations: [GridComponent, BoxComponent],
   imports: [CommonModule, RouterModule.forChild(ROUTES), SharedModule, DragDropModule],
+  providers: [PlotterService],
 })
 export class PlotterModule {}

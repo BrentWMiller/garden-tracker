@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 // interfaces
 import { User } from '../interfaces/user.interface';
+import { ResponseMessage } from '../interfaces/response-message';
 
 // 3rd party
 import * as firebase from 'firebase/app';
@@ -13,6 +14,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root',
 })
 export class AuthService {
+  public message: ResponseMessage;
+
   constructor(public afAuth: AngularFireAuth, private db: AngularFirestore) {}
 
   get state$(): Observable<firebase.User> {
@@ -48,6 +51,25 @@ export class AuthService {
       .collection<User>('users')
       .doc(entry.uid) // sets the collection uid to the same as the user's uid
       .set(user);
+  }
+
+  public updateUserRecord(uid: string, event: any): Promise<any> {
+    return this.db
+      .collection<User>('users')
+      .doc(uid)
+      .update(event)
+      .then(() => {
+        return (this.message = {
+          type: 'success',
+          message: 'Updated user record',
+        });
+      })
+      .catch((error) => {
+        return (this.message = {
+          type: 'error',
+          message: error.message,
+        });
+      });
   }
 
   public login(email: string, password: string): Promise<any> {
