@@ -1,13 +1,7 @@
 <div class="grid">
   <div class="grid__boundary">
-    
-    <div class="grid__box"
-      cdkDrag
-      cdkDragBoundary=".grid__boundary"
-      (cdkDragEnded)="dragEnd($event)"
-      cdkDragFreeDragPosition="currentPosition">
-        {{ currentPosition.x }} : {{ currentPosition.y }}
-    </div>
+
+    <gt-box></gt-box>
     
   </div>
 </div>

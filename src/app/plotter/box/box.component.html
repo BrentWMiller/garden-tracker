@@ -1,0 +1,7 @@
+<div class="box"
+  cdkDrag
+  cdkDragBoundary=".grid__boundary"
+  (cdkDragEnded)="dragEnd($event)"
+  cdkDragFreeDragPosition="currentPosition">
+    {{ currentPosition.x }} : {{ currentPosition.y }}
+</div>

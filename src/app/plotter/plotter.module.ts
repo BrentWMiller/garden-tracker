@@ -5,6 +5,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 
 // components
 import { GridComponent } from './grid/grid.component';
+import { BoxComponent } from './box/box.component';
 
 export const ROUTES: Routes = [
   {
@@ -16,7 +17,7 @@ export const ROUTES: Routes = [
 ];
 
 @NgModule({
-  declarations: [GridComponent],
+  declarations: [GridComponent, BoxComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(ROUTES),

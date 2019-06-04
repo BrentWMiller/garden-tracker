@@ -1,16 +1,8 @@
 .grid {
-
   &__boundary {
     width: 400px;
     max-width: 100%;
     height: 400px;
     background-color: #eee;
-  }
-
-  &__box {
-    cursor: move;
-    width: 70px;
-    height: 70px;
-    background-color: rgb(94, 255, 0);
   }
 }
