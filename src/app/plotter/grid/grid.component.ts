@@ -9,15 +9,18 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
 export class GridComponent implements OnInit {
   currentPosition?: {x: number, y: number};
 
-  constructor() { }
+  constructor() {
+    this.currentPosition = {
+      x: 0,
+      y: 0,
+    }
+  }
 
   ngOnInit() {
   }
 
   dragEnd(event: CdkDragEnd) {
     this.currentPosition = { ...(<any>event.source._dragRef)._passiveTransform };
-
-    console.log(this.currentPosition);
   }
 
 }
