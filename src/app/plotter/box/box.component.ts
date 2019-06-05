@@ -34,12 +34,15 @@ export class BoxComponent implements OnInit {
   }
 
   dragEnd(event: CdkDragEnd) {
-    console.log(this.initialPosition);
     this.currentPosition = { ...(<any>event.source._dragRef)._activeTransform };
 
     this.currentPosition.x = this.currentPosition.x + this.initialPosition.x;
     this.currentPosition.y = this.currentPosition.y + this.initialPosition.y;
 
     this.updateBoxPositionEvent.emit(this.currentPosition);
+  }
+
+  editBox() {
+    console.log('clicked');
   }
 }

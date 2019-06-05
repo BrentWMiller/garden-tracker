@@ -4,4 +4,6 @@
   (cdkDragEnded)="dragEnd($event)"
   [style.transform]="transform">
     {{ currentPosition?.x }}:{{ currentPosition?.y }}
+
+    <button (click)="editBox()">Edit</button>
 </div>
