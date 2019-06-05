@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 // services
 import { PlotterService } from '../plotter.service';
-import { GenerateIdService } from 'src/app/shared/services/generate-id.service';
 
 // interfaces
 import { Box } from '../interfaces/box.interface';
@@ -13,9 +12,9 @@ import { Box } from '../interfaces/box.interface';
   styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit {
-  boxes: Array<any> = [];
+  boxes: Array<Box> = [];
 
-  constructor(private plotterService: PlotterService, private generateIdService: GenerateIdService) {}
+  constructor(private plotterService: PlotterService) {}
 
   ngOnInit() {
     this.loadGrid();
