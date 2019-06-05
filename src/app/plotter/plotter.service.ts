@@ -24,7 +24,10 @@ export class PlotterService {
     this.authService.updateUserRecord(this.authService.user.uid, event);
   }
 
-  saveBoxPositon(position) {
-    console.log(position);
+  loadGrid() {
+    const uid = this.authService.user.uid;
+    const docRef = this.db.collection('users').doc(uid);
+
+    return docRef.get();
   }
 }
