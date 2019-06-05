@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDrag } from '@angular/cdk/drag-drop';
 
 // services
 import { PlotterService } from '../plotter.service';
@@ -18,10 +17,30 @@ export class GridComponent implements OnInit {
 
   constructor(private plotterService: PlotterService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadGrid();
+  }
 
-  addBox() {
-    this.boxes.push(CdkDrag);
+  addBox(x: number, y: number) {
+    this.boxes.push({
+      position: {
+        x,
+        y,
+      },
+    });
+  }
+
+  loadGrid() {
+    this.plotterService.loadGrid().subscribe((doc) => {
+      if (doc.exists) {
+        const boxes = doc.data().boxes;
+        boxes.forEach((box) => {
+          this.addBox(box.x, box.y);
+        });
+      } else {
+        console.error('No document exists');
+      }
+    });
   }
 
   saveGrid() {

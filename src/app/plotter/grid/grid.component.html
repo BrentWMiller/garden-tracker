@@ -1,10 +1,10 @@
 <div class="grid">
   <div class="grid__boundary">
 
-    <gt-box *ngFor="let box of boxes" (updateBoxPositionEvent)="updateBox($event)"></gt-box>
+    <gt-box *ngFor="let box of boxes" [position]="box.position" (updateBoxPositionEvent)="updateBox($event)"></gt-box>
     
   </div>
 </div>
 
-<button mat-button type="button" (click)="addBox()">Add Box</button>
+<button mat-button type="button" (click)="addBox(0, 0)">Add Box</button>
 <button mat-button type="button" (click)="saveGrid()">Save Grid</button>
