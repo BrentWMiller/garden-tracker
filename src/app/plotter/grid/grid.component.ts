@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // services
 import { PlotterService } from '../plotter.service';
+import { GenerateIdService } from 'src/app/shared/services/generate-id.service';
 
 // interfaces
 import { Box } from '../interfaces/box.interface';
@@ -13,9 +14,8 @@ import { Box } from '../interfaces/box.interface';
 })
 export class GridComponent implements OnInit {
   boxes: Array<any> = [];
-  boxPositions: Array<Box> = [];
 
-  constructor(private plotterService: PlotterService) {}
+  constructor(private plotterService: PlotterService, private generateIdService: GenerateIdService) {}
 
   ngOnInit() {
     this.loadGrid();
@@ -23,10 +23,8 @@ export class GridComponent implements OnInit {
 
   addBox(x: number, y: number) {
     this.boxes.push({
-      position: {
-        x,
-        y,
-      },
+      x,
+      y,
     });
   }
 
@@ -34,9 +32,12 @@ export class GridComponent implements OnInit {
     this.plotterService.loadGrid().subscribe((doc) => {
       if (doc.exists) {
         const boxes = doc.data().boxes;
-        boxes.forEach((box) => {
-          this.addBox(box.x, box.y);
-        });
+
+        if (boxes) {
+          boxes.forEach((box) => {
+            this.addBox(box.x, box.y);
+          });
+        }
       } else {
         console.error('No document exists');
       }
@@ -44,10 +45,22 @@ export class GridComponent implements OnInit {
   }
 
   saveGrid() {
-    this.plotterService.saveGrid(this.boxPositions);
+    this.plotterService.saveGrid(this.boxes);
   }
 
-  updateBox(event) {
-    this.boxPositions.push(event);
+  updateBox(newPosition: any, previousPosition: any) {
+    const box = {
+      x: newPosition.x,
+      y: newPosition.y,
+    };
+
+    const boxIndex = this.boxes.indexOf(previousPosition);
+
+    if (boxIndex !== null) {
+      this.boxes[boxIndex].x = box.x;
+      this.boxes[boxIndex].y = box.y;
+    } else {
+      this.boxes.push(box);
+    }
   }
 }

@@ -2,7 +2,6 @@
   cdkDrag
   cdkDragBoundary=".grid__boundary"
   (cdkDragEnded)="dragEnd($event)"
-  cdkDragFreeDragPosition="currentPosition"
-  [style.transform]="initialPosition">
-    {{ currentPosition.x }} {{ currentPosition.y }}
+  [style.transform]="transform">
+    {{ currentPosition?.x }} {{ currentPosition?.y }}
 </div>
