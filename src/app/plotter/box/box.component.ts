@@ -3,6 +3,8 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
 // services
 import { PlotterService } from '../plotter.service';
+import { MatDialog } from '@angular/material/dialog';
+import { BoxFormComponent } from './box-form/box-form.component';
 
 @Component({
   selector: 'gt-box',
@@ -11,13 +13,14 @@ import { PlotterService } from '../plotter.service';
 })
 export class BoxComponent implements OnInit {
   @Input() position: any;
+  @Input() index: number;
   @Output() updateBoxPositionEvent: any = new EventEmitter();
 
   currentPosition: any;
   initialPosition: any;
   transform: string;
 
-  constructor(private plotterService: PlotterService) {}
+  constructor(private plotterService: PlotterService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.transform = `translate3d(${this.position.x}px, ${this.position.y}px, 0)`;
@@ -43,6 +46,28 @@ export class BoxComponent implements OnInit {
   }
 
   editBox() {
-    console.log('clicked');
+    const dialogRef = this.dialog.open(BoxFormComponent, {
+      width: '960px',
+    });
+
+    dialogRef.componentInstance.saveEvent.subscribe((event) => {
+      this.saveBoxDetails(event);
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      dialogRef.componentInstance.saveEvent.unsubscribe();
+    });
+  }
+
+  async saveBoxDetails(event: any) {
+    const box = {
+      index: this.index,
+      title: event.title,
+      x: this.currentPosition.x,
+      y: this.currentPosition.y,
+    };
+
+    this.plotterService.saveBoxDetails(box);
+    this.dialog.closeAll();
   }
 }
