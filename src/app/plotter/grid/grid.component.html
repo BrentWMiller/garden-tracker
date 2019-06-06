@@ -1,7 +1,7 @@
 <div class="grid">
   <div class="grid__boundary">
 
-    <gt-box *ngFor="let box of boxes" [position]="box" (updateBoxPositionEvent)="updateBox($event, box)"></gt-box>
+    <gt-box *ngFor="let box of boxes; let i = index" [position]="box" [index]="i" (updateBoxPositionEvent)="updateBox($event, box)"></gt-box>
     
   </div>
 </div>
