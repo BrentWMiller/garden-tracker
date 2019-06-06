@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 
 // 3rd party
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 // services
 import { AuthService } from '../shared/services/auth.service';
 
 // interfaces
 import { Box } from './interfaces/box.interface';
-import { User } from '../shared/interfaces/user.interface';
 import { Plot } from './interfaces/plot.interface';
 
 @Injectable({
@@ -19,6 +19,14 @@ export class PlotterService {
 
   constructor(private authService: AuthService, private db: AngularFirestore) {
     this.uid = authService.user.uid;
+  }
+
+  public getPlots(): Observable<any> {
+    return this.db
+      .collection('users')
+      .doc(this.uid)
+      .collection('plots')
+      .valueChanges();
   }
 
   createPlot(plot: Plot) {
