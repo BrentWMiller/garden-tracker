@@ -1,1 +1,5 @@
 <button mat-button type="button" (click)="openPlotForm()">Create New Plot</button>
+
+<ul>
+  <li *ngFor="let plot of plots">{{ plot.title }}</li>
+</ul>

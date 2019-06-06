@@ -10,7 +10,13 @@ import { Plot } from '../interfaces/plot.interface';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private dialog: MatDialog, private plotterService: PlotterService) {}
+  plots: Array<Plot>;
+
+  constructor(private dialog: MatDialog, private plotterService: PlotterService) {
+    this.plotterService.getPlots().subscribe((plots) => {
+      this.plots = plots;
+    });
+  }
 
   ngOnInit() {}
 
