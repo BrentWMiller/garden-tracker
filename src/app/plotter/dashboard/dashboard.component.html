@@ -1,8 +1,9 @@
-<button mat-flat-button color="primary" type="button" (click)="openPlotForm()">Create New Plot</button>
+<button mat-flat-button color="accent" type="button" (click)="openPlotForm()">Create New Plot</button>
 
 <mat-list>
   <h3 mat-subheader>Plots</h3>
   <mat-list-item *ngFor="let plot of plots">
     <h4 mat-line>{{ plot.title }}</h4>
+    <a mat-button [routerLink]="['plot', plot.id]">View</a>
   </mat-list-item>
 </mat-list>
