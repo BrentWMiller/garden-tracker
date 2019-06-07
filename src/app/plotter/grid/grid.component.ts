@@ -6,6 +6,7 @@ import { PlotterService } from '../plotter.service';
 
 // interfaces
 import { Box } from '../interfaces/box.interface';
+import { PlotDemensions } from '../interfaces/plot.interface';
 
 @Component({
   selector: 'gt-grid',
@@ -15,14 +16,21 @@ import { Box } from '../interfaces/box.interface';
 export class GridComponent implements OnInit {
   pid: string;
   title: string;
+  description: string;
+  demensions: PlotDemensions;
   boxes: Array<Box> = [];
 
   constructor(private plotterService: PlotterService, private route: ActivatedRoute) {
     this.pid = this.route.snapshot.params.pid;
+
+    this.demensions = {
+      width: 0,
+      height: 0,
+    };
   }
 
-  ngOnInit() {
-    this.loadGrid();
+  async ngOnInit() {
+    await this.loadGrid();
   }
 
   addBox(x: number, y: number) {
@@ -32,12 +40,17 @@ export class GridComponent implements OnInit {
     });
   }
 
-  loadGrid() {
-    this.plotterService.loadGrid(this.pid).subscribe((doc) => {
+  async loadGrid() {
+    await this.plotterService.loadGrid(this.pid).subscribe((doc) => {
       if (doc.exists) {
         const data = doc.data();
         const boxes = data.boxes;
+
         this.title = data.title;
+        this.description = data.description;
+
+        this.demensions.width = data.demensions.width * 50;
+        this.demensions.height = data.demensions.height * 50;
 
         if (boxes) {
           boxes.forEach((box) => {

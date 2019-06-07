@@ -1,10 +1,10 @@
 <div class="grid">
-  <a [routerLink]="['plotter']">Plots List</a>
+  <a [routerLink]="['/plotter']">Plots List</a>
   <h2 class="grid__title">{{ title }}</h2>
-  <div class="grid__boundary">
-
+  <p *ngIf="description" class="grid__description">{{ description }}</p>
+  
+  <div class="grid__boundary" [style.width.px]="demensions?.width" [style.height.px]="demensions?.height">
     <gt-box *ngFor="let box of boxes; let i = index" [position]="box" [index]="i" (updateBoxPositionEvent)="updateBox($event, box)"></gt-box>
-    
   </div>
 </div>
 
