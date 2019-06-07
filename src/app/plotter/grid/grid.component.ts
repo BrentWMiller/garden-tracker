@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 // services
 import { PlotterService } from '../plotter.service';
@@ -12,9 +13,13 @@ import { Box } from '../interfaces/box.interface';
   styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit {
+  pid: string;
+  title: string;
   boxes: Array<Box> = [];
 
-  constructor(private plotterService: PlotterService) {}
+  constructor(private plotterService: PlotterService, private route: ActivatedRoute) {
+    this.pid = this.route.snapshot.params.pid;
+  }
 
   ngOnInit() {
     this.loadGrid();
@@ -28,9 +33,11 @@ export class GridComponent implements OnInit {
   }
 
   loadGrid() {
-    this.plotterService.loadGrid().subscribe((doc) => {
+    this.plotterService.loadGrid(this.pid).subscribe((doc) => {
       if (doc.exists) {
-        const boxes = doc.data().boxes;
+        const data = doc.data();
+        const boxes = data.boxes;
+        this.title = data.title;
 
         if (boxes) {
           boxes.forEach((box) => {
@@ -44,7 +51,7 @@ export class GridComponent implements OnInit {
   }
 
   saveGrid() {
-    this.plotterService.saveGrid(this.boxes);
+    this.plotterService.saveGrid(this.boxes, this.pid);
   }
 
   updateBox(newPosition: any, previousPosition: any) {
