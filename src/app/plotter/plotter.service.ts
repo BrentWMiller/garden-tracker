@@ -10,6 +10,7 @@ import { AuthService } from '../shared/services/auth.service';
 // interfaces
 import { Box } from './interfaces/box.interface';
 import { Plot } from './interfaces/plot.interface';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -26,10 +27,19 @@ export class PlotterService {
       .collection('users')
       .doc(this.uid)
       .collection('plots')
-      .valueChanges();
+      .snapshotChanges()
+      .pipe(
+        map((actions) => {
+          return actions.map((action) => {
+            const data = action.payload.doc.data();
+            const id = action.payload.doc.id;
+            return { id, ...data };
+          });
+        })
+      );
   }
 
-  createPlot(plot: Plot) {
+  async createPlot(plot: Plot) {
     this.db
       .collection('users')
       .doc(this.uid)
