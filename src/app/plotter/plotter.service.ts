@@ -47,7 +47,7 @@ export class PlotterService {
       .add(plot);
   }
 
-  saveGrid(boxPositions: Array<Box>) {
+  saveGrid(boxPositions: Array<Box>, pid: string) {
     const event = {
       boxes: boxPositions,
     };
@@ -55,11 +55,17 @@ export class PlotterService {
     this.db
       .collection('users')
       .doc(this.uid)
+      .collection('plots')
+      .doc(pid)
       .update(event);
   }
 
-  loadGrid() {
-    const docRef = this.db.collection('users').doc(this.uid);
+  loadGrid(pid: string) {
+    const docRef = this.db
+      .collection('users')
+      .doc(this.uid)
+      .collection('plots')
+      .doc(pid);
 
     return docRef.get();
   }
