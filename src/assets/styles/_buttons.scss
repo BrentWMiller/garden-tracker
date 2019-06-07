@@ -1,0 +1,10 @@
+:root {
+  .mat-button,
+  .mat-flat-button,
+  .mat-icon-button,
+  .mat-stroked-button {
+    min-width: 100px;
+    padding: 5px 30px;
+    border-radius: 25px;
+  }
+}

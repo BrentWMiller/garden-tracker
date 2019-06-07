@@ -1,4 +1,6 @@
 @import './variables';
+@import '../styles/buttons';
+
 @import '~@angular/material/theming';
 
 @include mat-core();
