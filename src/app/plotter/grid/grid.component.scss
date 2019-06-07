@@ -9,8 +9,7 @@
   }
 
   &__boundary {
-    width: 800px;
-    max-width: 100%;
+    width: 600px;
     height: 600px;
 
     /* prettier-ignore */
@@ -21,6 +20,6 @@
       linear-gradient(to right, #000 50%, #fff 50%),
       linear-gradient(to bottom, #000 50%, #fff 50%);
     background-blend-mode: normal, difference, normal;
-    background-size: 70px 70px;
+    background-size: 50px 50px;
   }
 }
