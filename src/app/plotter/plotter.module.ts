@@ -22,6 +22,10 @@ export const ROUTES: Routes = [
     path: '',
     component: DashboardComponent,
   },
+  {
+    path: 'plot/:id',
+    component: GridComponent,
+  },
   // Fallback when no prior routes is matched
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
