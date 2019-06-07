@@ -16,10 +16,10 @@
       </mat-form-field>
       <br>
 
-      <div class="plot-form__whx">
+      <div formGroupName="demensions" class="plot-form__whx">
         <mat-form-field appearance="outline">
           <mat-label>Width</mat-label>
-          <input matInput type="number" placeholder="0" formControlName="sizeWidth" required>
+          <input matInput type="number" placeholder="0" formControlName="width" required>
           <span matSuffix>ft<sup>2</sup></span>
         </mat-form-field>
 
@@ -27,7 +27,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Height</mat-label>
-          <input matInput type="number" placeholder="0" formControlName="sizeHeight" required>
+          <input matInput type="number" placeholder="0" formControlName="height" required>
           <span matSuffix>ft<sup>2</sup></span>
         </mat-form-field>
       </div>

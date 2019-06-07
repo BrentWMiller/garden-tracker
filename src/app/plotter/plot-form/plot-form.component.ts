@@ -12,8 +12,10 @@ export class PlotFormComponent implements OnInit {
   form = this.fb.group({
     title: ['', Validators.required],
     description: '',
-    sizeWidth: [0, Validators.required],
-    sizeHeight: [0, Validators.required],
+    demensions: this.fb.group({
+      width: [0, Validators.required],
+      height: [0, Validators.required],
+    }),
   });
 
   constructor(private fb: FormBuilder) {}
