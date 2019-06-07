@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'gt-plot-form',
@@ -10,7 +10,10 @@ export class PlotFormComponent implements OnInit {
   @Output() saveEvent: any = new EventEmitter();
 
   form = this.fb.group({
-    title: [''],
+    title: ['', Validators.required],
+    description: '',
+    sizeWidth: [0, Validators.required],
+    sizeHeight: [0, Validators.required],
   });
 
   constructor(private fb: FormBuilder) {}

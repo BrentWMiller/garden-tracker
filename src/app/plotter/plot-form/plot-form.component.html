@@ -1,17 +1,42 @@
-<h2 mat-dialog-header>Create New Plot</h2>
+<div class="plot-form">
+  <h2 class="plot-form__title" mat-dialog-header>New Plot</h2>
 
-<form [formGroup]="form" (ngSubmit)="save()">
-  <mat-dialog-content>
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <mat-dialog-content>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Title</mat-label>
-      <input matInput type="text" placeholder="Title" formControlName="title">
-    </mat-form-field>
-    
-  </mat-dialog-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" placeholder="Title" formControlName="title" required>
+      </mat-form-field>
+      <br>
 
-  <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close type="button">Cancel</button>
-    <button mat-button type="submit" [disabled]="!valid">Save</button>
-  </mat-dialog-actions>
-</form>
+      <mat-form-field class="plot-form__full-width" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+      </mat-form-field>
+      <br>
+
+      <div class="plot-form__whx">
+        <mat-form-field appearance="outline">
+          <mat-label>Width</mat-label>
+          <input matInput type="number" placeholder="0" formControlName="sizeWidth" required>
+          <span matSuffix>ft<sup>2</sup></span>
+        </mat-form-field>
+
+        <span class="plot-form__whx-times">x</span>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Height</mat-label>
+          <input matInput type="number" placeholder="0" formControlName="sizeHeight" required>
+          <span matSuffix>ft<sup>2</sup></span>
+        </mat-form-field>
+      </div>
+      
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close type="button">Cancel</button>
+      <button mat-flat-button color="accent" type="submit" [disabled]="!valid">Save</button>
+    </mat-dialog-actions>
+  </form>
+</div>
