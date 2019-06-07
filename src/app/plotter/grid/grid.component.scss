@@ -2,6 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-flow: row wrap;
+
+  &__title {
+    width: 100%;
+  }
 
   &__boundary {
     width: 800px;
