@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 // 3rd party
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 // services
 import { AuthService } from '../shared/services/auth.service';
@@ -10,7 +11,6 @@ import { AuthService } from '../shared/services/auth.service';
 // interfaces
 import { Box } from './interfaces/box.interface';
 import { Plot } from './interfaces/plot.interface';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
