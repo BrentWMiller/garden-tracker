@@ -3,7 +3,8 @@
 <mat-list>
   <h3 mat-subheader>Plots</h3>
   <mat-list-item *ngFor="let plot of plots">
-    <h4 mat-line>{{ plot.title }}</h4>
+    <h4 mat-line><strong>{{ plot.title }}</strong> ({{ plot.demensions.width }} x {{ plot.demensions.height }} ft<sup>2</sup>)</h4>
+    <p mat-line *ngIf="plot.description">{{ plot.description}}</p>
     <a mat-button [routerLink]="['plot', plot.id]">View</a>
   </mat-list-item>
 </mat-list>
