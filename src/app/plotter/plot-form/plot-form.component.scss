@@ -1,0 +1,20 @@
+.plot-form {
+  $this: &;
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__full-width {
+    width: 100%;
+  }
+
+  &__whx {
+    &-times {
+      position: relative;
+      top: -5px;
+      font-size: 20px;
+      margin: 0 15px;
+    }
+  }
+}
