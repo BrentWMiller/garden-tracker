@@ -1,4 +1,6 @@
 <div class="grid">
+  <a [routerLink]="['plotter']">Plots List</a>
+  <h2 class="grid__title">{{ title }}</h2>
   <div class="grid__boundary">
 
     <gt-box *ngFor="let box of boxes; let i = index" [position]="box" [index]="i" (updateBoxPositionEvent)="updateBox($event, box)"></gt-box>
