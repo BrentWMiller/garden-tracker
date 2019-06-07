@@ -23,7 +23,7 @@ export const ROUTES: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'plot/:id',
+    path: 'plot/:pid',
     component: GridComponent,
   },
   // Fallback when no prior routes is matched
