@@ -1,0 +1,21 @@
+@import './variables';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+$gt-primary: mat-palette($md-primary);
+$gt-accent: mat-palette($md-accent);
+$gt-warn: mat-palette($md-tertiary);
+
+$gt-theme: mat-light-theme($gt-primary, $gt-accent, $gt-warn);
+
+@include angular-material-theme($gt-theme);

@@ -6,10 +6,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [],
-  imports: [MatInputModule, MatFormFieldModule, MatToolbarModule, MatSelectModule, MatButtonModule, MatDialogModule],
-  exports: [MatInputModule, MatFormFieldModule, MatToolbarModule, MatSelectModule, MatButtonModule, MatDialogModule],
+  imports: [MatInputModule, MatFormFieldModule, MatToolbarModule, MatSelectModule, MatButtonModule, MatDialogModule, MatListModule],
+  exports: [MatInputModule, MatFormFieldModule, MatToolbarModule, MatSelectModule, MatButtonModule, MatDialogModule, MatListModule],
 })
 export class MaterialModule {}
