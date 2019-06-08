@@ -10,10 +10,15 @@
   }
 
   &__container {
+    overflow: auto;
+    max-width: 100vw;
+    max-height: 100vh;
     margin: 0 auto;
+    border-radius: 15px;
   }
 
   &__boundary {
+    position: relative;
     width: 600px;
     height: 600px;
 
