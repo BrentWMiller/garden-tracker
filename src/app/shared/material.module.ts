@@ -7,10 +7,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
-  imports: [MatInputModule, MatFormFieldModule, MatToolbarModule, MatSelectModule, MatButtonModule, MatDialogModule, MatListModule],
-  exports: [MatInputModule, MatFormFieldModule, MatToolbarModule, MatSelectModule, MatButtonModule, MatDialogModule, MatListModule],
+  imports: [MatInputModule, MatFormFieldModule, MatToolbarModule, MatSelectModule, MatButtonModule, MatDialogModule, MatListModule, MatIconModule],
+  exports: [MatInputModule, MatFormFieldModule, MatToolbarModule, MatSelectModule, MatButtonModule, MatDialogModule, MatListModule, MatIconModule],
 })
 export class MaterialModule {}
