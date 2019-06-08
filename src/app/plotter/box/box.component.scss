@@ -7,6 +7,25 @@
   height: 50px;
   font-weight: bold;
   color: $color-text;
-  background-color: rgba($color-accent-light, 0.85);
+  background-color: $color-bg-light;
   border-radius: 100%;
+
+  &:hover {
+    .mat-icon {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate3d(-26px, -26px, 0);
+    }
+  }
+
+  .mat-icon {
+    position: absolute;
+    transform: translate3d(-32px, -32px, 0);
+    padding: 5px;
+    background-color: $color-accent;
+    border-radius: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
 }

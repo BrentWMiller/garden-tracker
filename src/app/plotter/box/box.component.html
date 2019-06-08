@@ -2,6 +2,9 @@
   cdkDrag
   cdkDragBoundary=".grid__boundary"
   (cdkDragEnded)="dragEnd($event)"
-  [style.transform]="transform"
-  (click)="editBox()">
+  [style.transform]="transform">
+
+  <div class="box__edit">
+    <mat-icon (click)="editBox()">edit</mat-icon>
+  </div>
 </div>
