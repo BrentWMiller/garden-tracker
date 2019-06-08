@@ -1,0 +1,10 @@
+.app {
+  &__header {
+  }
+
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+}
