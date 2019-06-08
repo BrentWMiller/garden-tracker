@@ -23,13 +23,11 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
@@ -39,6 +37,6 @@ import { HomeModule } from './home/home.module';
     PlotterModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
