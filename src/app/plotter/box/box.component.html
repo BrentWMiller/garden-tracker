@@ -2,8 +2,6 @@
   cdkDrag
   cdkDragBoundary=".grid__boundary"
   (cdkDragEnded)="dragEnd($event)"
-  [style.transform]="transform">
-    {{ currentPosition?.x }}:{{ currentPosition?.y }}
-
-    <button (click)="editBox()">Edit</button>
+  [style.transform]="transform"
+  (click)="editBox()">
 </div>
