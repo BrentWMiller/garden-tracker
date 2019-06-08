@@ -69,10 +69,4 @@ export class PlotterService {
 
     return docRef.get();
   }
-
-  saveBoxDetails(box: Box) {
-    // this.db
-    //   .collection(`users/`)
-    //   .where('boxes', 'array-contains', box);
-  }
 }

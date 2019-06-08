@@ -33,8 +33,9 @@ export class GridComponent implements OnInit {
     await this.loadGrid();
   }
 
-  addBox(x: number, y: number) {
+  addBox(title: string, x: number, y: number) {
     this.boxes.push({
+      title,
       x,
       y,
     });
@@ -54,7 +55,7 @@ export class GridComponent implements OnInit {
 
         if (boxes) {
           boxes.forEach((box) => {
-            this.addBox(box.x, box.y);
+            this.addBox(box.title, box.x, box.y);
           });
         }
       } else {
@@ -67,10 +68,11 @@ export class GridComponent implements OnInit {
     this.plotterService.saveGrid(this.boxes, this.pid);
   }
 
-  updateBox(newPosition: any, previousPosition: any) {
-    const box = {
-      x: newPosition.x,
-      y: newPosition.y,
+  updateBox(box: Box, previousPosition: any) {
+    const updatedBox = {
+      title: box.title,
+      x: box.x,
+      y: box.y,
     };
 
     const boxIndex = this.boxes.indexOf(previousPosition);
@@ -78,8 +80,12 @@ export class GridComponent implements OnInit {
     if (boxIndex !== null) {
       this.boxes[boxIndex].x = box.x;
       this.boxes[boxIndex].y = box.y;
+
+      if (box.title) {
+        this.boxes[boxIndex].title = box.title;
+      }
     } else {
-      this.boxes.push(box);
+      this.boxes.push(updatedBox);
     }
   }
 }

@@ -14,11 +14,13 @@ import { BoxFormComponent } from './box-form/box-form.component';
 export class BoxComponent implements OnInit {
   @Input() position: any;
   @Input() index: number;
-  @Output() updateBoxPositionEvent: any = new EventEmitter();
+  @Input() pid: string;
+  @Output() updateBoxEvent: any = new EventEmitter();
 
   currentPosition: any;
   initialPosition: any;
   transform: string;
+  title: string;
 
   constructor(private plotterService: PlotterService, private dialog: MatDialog) {}
 
@@ -42,7 +44,7 @@ export class BoxComponent implements OnInit {
     this.currentPosition.x = this.currentPosition.x + this.initialPosition.x;
     this.currentPosition.y = this.currentPosition.y + this.initialPosition.y;
 
-    this.updateBoxPositionEvent.emit(this.currentPosition);
+    this.updateBoxEvent.emit(this.currentPosition);
   }
 
   editBox() {
@@ -61,13 +63,12 @@ export class BoxComponent implements OnInit {
 
   async saveBoxDetails(event: any) {
     const box = {
-      index: this.index,
       title: event.title,
       x: this.currentPosition.x,
       y: this.currentPosition.y,
     };
 
-    this.plotterService.saveBoxDetails(box);
+    this.updateBoxEvent.emit(box);
     this.dialog.closeAll();
   }
 }
