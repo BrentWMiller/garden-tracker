@@ -1,10 +1,4 @@
 <div class="grid">
-
-  <div class="grid__header">
-    <a [routerLink]="['/plotter']">Plots List</a>
-    <h2 class="grid__title">{{ title }}</h2>
-    <p *ngIf="description" class="grid__description">{{ description }}</p>
-  </div>
   
   <div class="grid__container">
     <div class="grid__boundary" [style.width.px]="demensions?.width" [style.height.px]="demensions?.height">
@@ -13,7 +7,20 @@
   </div>
 </div>
 
-<div class="grid__actions">
-  <button mat-flat-button type="button" (click)="addBox(0, 0)">Add Box</button>
-  <button mat-flat-button color="accent" type="button" (click)="saveGrid()">Save Grid</button>
+<div class="grid__bar">
+  <div class="grid__bar-wrapper">
+
+    <div class="grid__bar-details">
+      <a class="grid__bar-details-return" [routerLink]="['/plotter']" aria-label="Back to Plot List">
+        <mat-icon>arrow_back</mat-icon>
+      </a>
+      <!-- <div class="grid__bar-title">{{ title }}</div> -->
+    </div>
+
+    <div class="grid__bar-actions">
+      <button mat-flat-button type="button" (click)="addBox(0, 0)">Add Box</button>
+      <button mat-flat-button color="accent" type="button" (click)="saveGrid()">Save Grid</button>
+    </div>
+
+  </div>
 </div>
