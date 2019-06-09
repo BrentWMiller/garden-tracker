@@ -15,9 +15,7 @@ export class BoxFormComponent implements OnInit {
     title: [this.data.title ? this.data.title : ''],
   });
 
-  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<BoxFormComponent>, @Inject(MAT_DIALOG_DATA) public data: Box) {
-    console.log(this.data);
-  }
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<BoxFormComponent>, @Inject(MAT_DIALOG_DATA) public data: Box) {}
 
   ngOnInit() {}
 
