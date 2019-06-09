@@ -1,6 +1,8 @@
 @import '../../../assets/styles/variables';
 
 .box {
+  $this: &;
+
   cursor: move;
   position: absolute;
   width: 50px;
@@ -27,14 +29,14 @@
       pointer-events: auto;
     }
 
-    .mat-icon {
+    #{$this}__edit {
       opacity: 1;
       pointer-events: auto;
       transform: translate3d(-26px, -26px, 0);
     }
   }
 
-  .mat-icon {
+  &__edit {
     position: absolute;
     transform: translate3d(-32px, -32px, 0);
     padding: 5px;

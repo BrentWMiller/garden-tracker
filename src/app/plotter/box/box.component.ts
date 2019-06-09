@@ -22,7 +22,6 @@ export class BoxComponent implements OnInit {
   currentPosition: any;
   initialPosition: any;
   transform: string;
-  title: string;
 
   constructor(private plotterService: PlotterService, private dialog: MatDialog) {}
 
