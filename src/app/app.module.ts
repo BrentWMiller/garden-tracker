@@ -21,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 // components
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
+import { SeedInventoryModule } from './seed-inventory/seed-inventory.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +36,7 @@ import { HomeModule } from './home/home.module';
     BrowserAnimationsModule,
     HomeModule,
     PlotterModule,
+    SeedInventoryModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
