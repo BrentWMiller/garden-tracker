@@ -8,15 +8,20 @@ const routes: Routes = [
   {
     path: 'plotter',
     loadChildren: './plotter/plotter.module#PlotterModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'seeds',
+    loadChildren: './seed-inventory/seed-inventory.module#SeedInventoryModule',
+    canActivate: [AuthGuard],
   },
   {
     path: 'auth',
-    loadChildren: './auth/auth.module#AuthModule'
+    loadChildren: './auth/auth.module#AuthModule',
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomeModule'
+    loadChildren: './home/home.module#HomeModule',
   },
   // Fallback when no prior routes is matched
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
@@ -24,6 +29,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

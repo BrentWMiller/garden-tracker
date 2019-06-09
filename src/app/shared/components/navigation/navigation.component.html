@@ -9,10 +9,13 @@
         <!-- authenticated -->
         <ng-container *ngIf="authenticated">
           <li class="navigation__action">
-            <a routerLink="/home" routerLinkActive="active">Home</a>
+            <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
           </li>
           <li class="navigation__action">
-            <a routerLink="/plotter" routerLinkActive="active">Plots</a>
+            <a [routerLink]="['/seeds']" routerLinkActive="active">Seeds</a>
+          </li>
+          <li class="navigation__action">
+            <a [routerLink]="['/plotter']" routerLinkActive="active">Plots</a>
           </li>
           <li class="navigation__action">
             <button type="button" (click)="logout()" aria-label="Logout">
@@ -24,7 +27,7 @@
         <!-- not authenticated -->
         <ng-container *ngIf="!authenticated">
           <li class="navigation__action">
-            <a routerLink="/auth/login" routerLinkActive="active">Login</a>
+            <a [routerLink]="['/auth', 'login']" routerLinkActive="active">Login</a>
           </li>
         </ng-container>
 
