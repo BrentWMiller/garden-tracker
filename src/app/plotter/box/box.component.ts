@@ -5,6 +5,7 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { PlotterService } from '../plotter.service';
 import { MatDialog } from '@angular/material/dialog';
 import { BoxFormComponent } from './box-form/box-form.component';
+import { Box } from '../interfaces/box.interface';
 
 @Component({
   selector: 'gt-box',
@@ -15,6 +16,7 @@ export class BoxComponent implements OnInit {
   @Input() position: any;
   @Input() index: number;
   @Input() pid: string;
+  @Input() box: Box;
   @Output() updateBoxEvent: any = new EventEmitter();
 
   currentPosition: any;
@@ -50,6 +52,7 @@ export class BoxComponent implements OnInit {
   editBox() {
     const dialogRef = this.dialog.open(BoxFormComponent, {
       width: '960px',
+      data: this.box,
     });
 
     dialogRef.componentInstance.saveEvent.subscribe((event) => {
@@ -62,13 +65,13 @@ export class BoxComponent implements OnInit {
   }
 
   async saveBoxDetails(event: any) {
-    const box = {
+    this.box = {
       title: event.title,
       x: this.currentPosition.x,
       y: this.currentPosition.y,
     };
 
-    this.updateBoxEvent.emit(box);
+    this.updateBoxEvent.emit(this.box);
     this.dialog.closeAll();
   }
 }
