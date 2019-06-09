@@ -43,10 +43,10 @@ export class BoxComponent implements OnInit {
   dragEnd(event: CdkDragEnd) {
     this.currentPosition = { ...(<any>event.source._dragRef)._activeTransform };
 
-    this.currentPosition.x = this.currentPosition.x + this.initialPosition.x;
-    this.currentPosition.y = this.currentPosition.y + this.initialPosition.y;
+    this.box.x = this.currentPosition.x + this.initialPosition.x;
+    this.box.y = this.currentPosition.y + this.initialPosition.y;
 
-    this.updateBoxEvent.emit(this.currentPosition);
+    this.updateBoxEvent.emit(this.box);
   }
 
   editBox() {
