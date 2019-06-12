@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // modules
 import { SharedModule } from '../shared/shared.module';
@@ -24,6 +25,7 @@ export const ROUTES: Routes = [
 
 @NgModule({
   declarations: [InventoryComponent, SeedFormComponent],
-  imports: [CommonModule, RouterModule.forChild(ROUTES), SharedModule],
+  entryComponents: [SeedFormComponent],
+  imports: [CommonModule, RouterModule.forChild(ROUTES), SharedModule, FormsModule, ReactiveFormsModule],
 })
 export class SeedInventoryModule {}
