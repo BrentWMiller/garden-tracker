@@ -1,5 +1,7 @@
 <div class="plot-form">
-  <h2 class="plot-form__title" mat-dialog-header>New Plot</h2>
+  <h2 class="plot-form__title" mat-dialog-header>
+    {{ data?.title ? 'Edit Plot' : 'New Plot' }}
+  </h2>
 
   <form [formGroup]="form" (ngSubmit)="save()">
     <mat-dialog-content>
