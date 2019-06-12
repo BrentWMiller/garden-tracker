@@ -1,5 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Plot } from '../interfaces/plot.interface';
 
 @Component({
   selector: 'gt-plot-form',
@@ -18,7 +20,14 @@ export class PlotFormComponent implements OnInit {
     }),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<PlotFormComponent>, @Inject(MAT_DIALOG_DATA) public data: Plot) {
+    if (this.data) {
+      this.form.get('title').patchValue(this.data.title ? this.data.title : '');
+      this.form.get('description').patchValue(this.data.description ? this.data.description : '');
+      this.form.get('demensions.width').patchValue(this.data.demensions.width ? this.data.demensions.width : 0);
+      this.form.get('demensions.height').patchValue(this.data.demensions.height ? this.data.demensions.height : 0);
+    }
+  }
 
   ngOnInit() {}
 
