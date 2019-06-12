@@ -10,12 +10,12 @@ import { SharedModule } from '../shared/shared.module';
 // components
 import { GridComponent } from './grid/grid.component';
 import { BoxComponent } from './box/box.component';
-
-// services
-import { PlotterService } from './plotter.service';
 import { BoxFormComponent } from './box/box-form/box-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PlotFormComponent } from './plot-form/plot-form.component';
+
+// services
+import { PlotterService } from './plotter.service';
 
 export const ROUTES: Routes = [
   {
