@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 
 // components
 import { InventoryComponent } from './inventory/inventory.component';
+import { SeedFormComponent } from './seed-form/seed-form.component';
 
 export const ROUTES: Routes = [
   {
@@ -22,7 +23,7 @@ export const ROUTES: Routes = [
 ];
 
 @NgModule({
-  declarations: [InventoryComponent],
+  declarations: [InventoryComponent, SeedFormComponent],
   imports: [CommonModule, RouterModule.forChild(ROUTES), SharedModule],
 })
 export class SeedInventoryModule {}
