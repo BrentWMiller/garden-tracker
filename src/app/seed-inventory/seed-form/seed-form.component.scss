@@ -1,4 +1,18 @@
 .seed-form {
-  &__title {
+  $this: &;
+
+  &__fields {
+    display: flex;
+    flex-flow: row wrap;
+
+    ::ng-deep {
+      #{$this}__name {
+        width: 50%;
+      }
+
+      #{$this}__description {
+        width: 100%;
+      }
+    }
   }
 }
