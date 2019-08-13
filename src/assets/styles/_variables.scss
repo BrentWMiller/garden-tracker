@@ -1,65 +1,62 @@
-$color-primary: #503e9d;
-$color-accent: #fcd661;
-$color-accent-light: #fcd661;
-$color-tertiary: #fb6d3b;
-$color-tertiary-light: #fef7ec;
-
 $color-bg: #f8f8f8;
 $color-bg-light: #fff;
 
 $color-text: #202020;
 $color-text-light: #c1c1c1;
+$color-text-inverted: #fff;
+
+$border-radius: 25px;
 
 // via http://mcg.mbitson.com
 
 $md-primary: (
-  50: #eae8f3,
-  100: #cbc5e2,
-  200: #a89fce,
-  300: #8578ba,
-  400: #6a5bac,
-  500: #503e9d,
-  600: #493895,
-  700: #40308b,
-  800: #372881,
-  900: #271b6f,
-  A100: #b5abff,
-  A200: #8878ff,
-  A400: #5c45ff,
-  A700: #452bff,
+  50: #f2f3ff,
+  100: #dde0fe,
+  200: #c7ccfe,
+  300: #b1b7fe,
+  400: #a0a7fd,
+  500: #8f98fd,
+  600: #8790fd,
+  700: #7c85fc,
+  800: #727bfc,
+  900: #606afc,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #e6e8ff,
   contrast: (
     50: #000000,
     100: #000000,
     200: #000000,
     300: #000000,
-    400: #ffffff,
-    500: #ffffff,
-    600: #ffffff,
-    700: #ffffff,
-    800: #ffffff,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
     900: #ffffff,
     A100: #000000,
     A200: #000000,
-    A400: #ffffff,
-    A700: #ffffff,
+    A400: #000000,
+    A700: #000000,
   ),
 );
 
 $md-accent: (
-  50: #fffaec,
-  100: #fef3d0,
-  200: #feebb0,
-  300: #fde290,
-  400: #fcdc79,
-  500: #fcd661,
-  600: #fcd159,
-  700: #fbcc4f,
-  800: #fbc645,
-  900: #fabc33,
+  50: #fffbed,
+  100: #fff6d1,
+  200: #fff0b2,
+  300: #ffea93,
+  400: #ffe67c,
+  500: #ffe165,
+  600: #ffdd5d,
+  700: #ffd953,
+  800: #ffd549,
+  900: #ffcd37,
   A100: #ffffff,
   A200: #ffffff,
-  A400: #fff2d9,
-  A700: #ffeabf,
+  A400: #fff7e1,
+  A700: #fff0c8,
   contrast: (
     50: #000000,
     100: #000000,

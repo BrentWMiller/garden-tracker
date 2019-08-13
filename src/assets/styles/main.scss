@@ -21,3 +21,5 @@ $gt-warn: mat-palette($md-tertiary);
 $gt-theme: mat-light-theme($gt-primary, $gt-accent, $gt-warn);
 
 @include angular-material-theme($gt-theme);
+
+@import './mat-dialog';

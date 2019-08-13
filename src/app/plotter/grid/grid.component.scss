@@ -63,7 +63,7 @@ $action-bar: 75px;
         height: 100%;
         color: $color-text;
         text-decoration: none;
-        background-color: $color-accent;
+        background-color: map-get($md-accent, 500);
         border-radius: 0 25px 25px 0;
       }
     }
