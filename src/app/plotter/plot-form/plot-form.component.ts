@@ -12,22 +12,15 @@ export class PlotFormComponent implements OnInit {
   @Output() saveEvent: any = new EventEmitter();
 
   form = this.fb.group({
-    title: ['', Validators.required],
-    description: '',
+    title: [this.data.title ? this.data.title : '', Validators.required],
+    description: this.data.description ? this.data.description : '',
     demensions: this.fb.group({
-      width: [0, Validators.required],
-      height: [0, Validators.required],
+      width: [this.data.demensions.width ? this.data.demensions.width : '', Validators.required],
+      height: [this.data.demensions.height ? this.data.demensions.height : '', Validators.required],
     }),
   });
 
-  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<PlotFormComponent>, @Inject(MAT_DIALOG_DATA) public data: Plot) {
-    if (this.data) {
-      this.form.get('title').patchValue(this.data.title ? this.data.title : '');
-      this.form.get('description').patchValue(this.data.description ? this.data.description : '');
-      this.form.get('demensions.width').patchValue(this.data.demensions.width ? this.data.demensions.width : 0);
-      this.form.get('demensions.height').patchValue(this.data.demensions.height ? this.data.demensions.height : 0);
-    }
-  }
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<PlotFormComponent>, @Inject(MAT_DIALOG_DATA) public data: Plot) {}
 
   ngOnInit() {}
 
