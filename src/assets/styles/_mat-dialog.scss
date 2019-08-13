@@ -1,0 +1,42 @@
+@import './variables';
+
+:root {
+  .mat-dialog-container {
+    position: relative;
+    padding: 0 0 24px;
+    border-radius: $border-radius;
+  }
+
+  h2[mat-dialog-header] {
+    padding: 24px 24px 48px;
+    background-color: map-get($md-accent, 500);
+    color: $color-text;
+  }
+
+  .mat-dialog-content {
+    position: relative;
+    z-index: 1;
+    margin: -24px 0 0;
+    padding: 24px;
+    border-radius: 0;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    background-color: $color-bg-light;
+    box-shadow: 0 -6px 20px 0px map-get($md-accent, 600);
+  }
+
+  .mat-dialog-actions {
+    position: relative;
+    z-index: 2;
+    padding: 8px 24px 24px;
+    background-color: $color-bg-light;
+
+    button {
+      margin: 0 5px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
