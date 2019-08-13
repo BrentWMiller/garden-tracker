@@ -9,6 +9,11 @@ import { take } from 'rxjs/operators';
 // interfaces
 import { Seed } from '../interfaces/seed.interface';
 
+interface SeedFormData {
+  seed: Seed;
+  type: string;
+}
+
 @Component({
   selector: 'gt-seed-form',
   templateUrl: './seed-form.component.html',
@@ -16,20 +21,14 @@ import { Seed } from '../interfaces/seed.interface';
 })
 export class SeedFormComponent implements OnInit {
   @Output() saveEvent: any = new EventEmitter();
-
-  form = this.fb.group({
-    name: [this.data.name ? this.data.name : '', Validators.required],
-    description: this.data.description ? this.data.description : '',
-  });
-
-  constructor(private fb: FormBuilder, private ngZone: NgZone, @Inject(MAT_DIALOG_DATA) public data: Seed) {}
-
   @ViewChild('autosize', { static: false }) autosize: CdkTextareaAutosize;
 
-  triggerResize() {
-    // Wait for changes to be applied, then trigger textarea resize.
-    this.ngZone.onStable.pipe(take(1)).subscribe(() => this.autosize.resizeToFitContent(true));
-  }
+  form = this.fb.group({
+    name: [this.data.seed.name ? this.data.seed.name : '', Validators.required],
+    description: this.data.seed.description ? this.data.seed.description : '',
+  });
+
+  constructor(private fb: FormBuilder, private ngZone: NgZone, @Inject(MAT_DIALOG_DATA) public data: SeedFormData) {}
 
   ngOnInit() {}
 
@@ -42,6 +41,14 @@ export class SeedFormComponent implements OnInit {
   }
 
   save() {
-    this.saveEvent.emit(this.value);
+    this.saveEvent.emit({
+      seed: this.value,
+      type: this.data.type,
+    });
+  }
+
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this.ngZone.onStable.pipe(take(1)).subscribe(() => this.autosize.resizeToFitContent(true));
   }
 }

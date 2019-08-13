@@ -38,11 +38,20 @@ export class SeedService {
       );
   }
 
-  async createSeed(seed: Seed) {
+  createSeed(seed: Seed) {
     this.db
       .collection('users')
       .doc(this.uid)
       .collection('seeds')
       .add(seed);
+  }
+
+  updateSeed(seed: Seed, id: string) {
+    this.db
+      .collection('users')
+      .doc(this.uid)
+      .collection('seeds')
+      .doc(id)
+      .update(seed);
   }
 }

@@ -29,24 +29,23 @@ export class InventoryComponent implements OnInit {
   openSeedForm(seed?: Seed) {
     const dialogRef = this.dialog.open(SeedFormComponent, {
       width: '960px',
-      data: seed ? seed : null,
+      data: {
+        seed: seed ? seed : null,
+        type: seed ? 'update' : 'create',
+      },
     });
 
-    dialogRef.componentInstance.saveEvent.subscribe((event) => {
-      this.createSeed(event);
+    dialogRef.componentInstance.saveEvent.subscribe(async (event) => {
+      if (event.type === 'create') {
+        await this.seedService.createSeed(event.seed);
+      } else if (event.type === 'update') {
+        await this.seedService.updateSeed(event.seed, seed.id);
+      }
+      this.dialog.closeAll();
     });
 
     dialogRef.afterClosed().subscribe(() => {
       dialogRef.componentInstance.saveEvent.unsubscribe();
     });
-  }
-
-  async createSeed(seed: Seed) {
-    try {
-      await this.seedService.createSeed(seed);
-      this.dialog.closeAll();
-    } catch (error) {
-      console.error(error);
-    }
   }
 }

@@ -1,6 +1,6 @@
 <div class="seed-form">
   <h2 mat-dialog-header>
-    Create Seed
+    {{ data?.seed?.name ? 'Edit Seed' : 'New Seed' }}
   </h2>
 
   <form [formGroup]="form" (ngSubmit)="save()">
