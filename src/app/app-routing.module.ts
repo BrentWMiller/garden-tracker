@@ -7,21 +7,21 @@ import { AuthGuard } from './shared/guards/auth.guard';
 const routes: Routes = [
   {
     path: 'plotter',
-    loadChildren: './plotter/plotter.module#PlotterModule',
+    loadChildren: () => import('./plotter/plotter.module').then(m => m.PlotterModule),
     canActivate: [AuthGuard],
   },
   {
     path: 'seeds',
-    loadChildren: './seed-inventory/seed-inventory.module#SeedInventoryModule',
+    loadChildren: () => import('./seed-inventory/seed-inventory.module').then(m => m.SeedInventoryModule),
     canActivate: [AuthGuard],
   },
   {
     path: 'auth',
-    loadChildren: './auth/auth.module#AuthModule',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomeModule',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
   // Fallback when no prior routes is matched
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
