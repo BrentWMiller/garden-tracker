@@ -6,6 +6,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 // modules
 import { SharedModule } from '../shared/shared.module';
 
+// services
+import { SeedService } from './seed.service';
+
 // components
 import { InventoryComponent } from './inventory/inventory.component';
 import { SeedFormComponent } from './seed-form/seed-form.component';
@@ -27,5 +30,6 @@ export const ROUTES: Routes = [
   declarations: [InventoryComponent, SeedFormComponent],
   entryComponents: [SeedFormComponent],
   imports: [CommonModule, RouterModule.forChild(ROUTES), SharedModule, FormsModule, ReactiveFormsModule],
+  providers: [SeedService],
 })
 export class SeedInventoryModule {}
