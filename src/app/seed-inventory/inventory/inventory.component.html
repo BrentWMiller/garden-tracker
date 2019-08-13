@@ -1,1 +1,10 @@
-<button mat-flat-button color="accent" type="button" (click)="openSeedForm()">Create New Seed</button> 
+<button mat-flat-button color="accent" type="button" (click)="openSeedForm()">Create New Seed</button>
+
+<mat-list *ngIf="seeds">
+  <h3 mat-subheader>Seeds</h3>
+  <mat-list-item *ngFor="let seed of seeds">
+    <h4 mat-line><strong>{{ seed.name }}</strong></h4>
+    <p mat-line *ngIf="seed.description">{{ seed.description}}</p>
+    <button mat-button type="button" (click)="openSeedForm(seed)">Edit</button>
+  </mat-list-item>
+</mat-list>

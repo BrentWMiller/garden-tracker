@@ -1,7 +1,13 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, NgZone } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, NgZone, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+// 3rd party
 import { take } from 'rxjs/operators';
+
+// interfaces
+import { Seed } from '../interfaces/seed.interface';
 
 @Component({
   selector: 'gt-seed-form',
@@ -12,11 +18,11 @@ export class SeedFormComponent implements OnInit {
   @Output() saveEvent: any = new EventEmitter();
 
   form = this.fb.group({
-    name: ['', Validators.required],
-    description: '',
+    name: [this.data.name ? this.data.name : '', Validators.required],
+    description: this.data.description ? this.data.description : '',
   });
 
-  constructor(private fb: FormBuilder, private ngZone: NgZone) {}
+  constructor(private fb: FormBuilder, private ngZone: NgZone, @Inject(MAT_DIALOG_DATA) public data: Seed) {}
 
   @ViewChild('autosize', { static: false }) autosize: CdkTextareaAutosize;
 
