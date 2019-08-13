@@ -1,6 +1,6 @@
 <div class="plot-form">
   <h2 mat-dialog-header>
-    {{ data?.title ? 'Edit Plot' : 'New Plot' }}
+    {{ data?.plot?.title ? 'Edit Plot' : 'New Plot' }}
   </h2>
 
   <form [formGroup]="form" (ngSubmit)="save()">

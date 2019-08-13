@@ -23,20 +23,23 @@ export class DashboardComponent implements OnInit {
   openPlotForm(plot?: Plot) {
     const dialogRef = this.dialog.open(PlotFormComponent, {
       width: '960px',
-      data: plot ? plot : null,
+      data: {
+        plot: plot ? plot : null,
+        type: plot ? 'update' : 'create',
+      },
     });
 
-    dialogRef.componentInstance.saveEvent.subscribe((event) => {
-      this.createPlot(event);
+    dialogRef.componentInstance.saveEvent.subscribe(async (event) => {
+      if (event.type === 'create') {
+        await this.plotterService.createPlot(event.plot);
+      } else if (event.type === 'update') {
+        await this.plotterService.updatePlot(event.plot, plot.id);
+      }
+      this.dialog.closeAll();
     });
 
     dialogRef.afterClosed().subscribe(() => {
       dialogRef.componentInstance.saveEvent.unsubscribe();
     });
-  }
-
-  async createPlot(plot: Plot) {
-    await this.plotterService.createPlot(plot);
-    this.dialog.closeAll();
   }
 }

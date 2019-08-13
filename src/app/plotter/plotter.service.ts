@@ -39,12 +39,21 @@ export class PlotterService {
       );
   }
 
-  async createPlot(plot: Plot) {
+  createPlot(plot: Plot) {
     this.db
       .collection('users')
       .doc(this.uid)
       .collection('plots')
       .add(plot);
+  }
+
+  updatePlot(plot: Plot, id: string) {
+    this.db
+      .collection('users')
+      .doc(this.uid)
+      .collection('plots')
+      .doc(id)
+      .update(plot);
   }
 
   saveGrid(boxPositions: Array<Box>, pid: string) {
