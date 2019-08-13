@@ -1,6 +1,6 @@
 <button mat-flat-button color="accent" type="button" (click)="openPlotForm(null)">Create New Plot</button>
 
-<mat-list>
+<mat-list *ngIf="plots">
   <h3 mat-subheader>Plots</h3>
   <mat-list-item *ngFor="let plot of plots">
     <h4 mat-line><strong>{{ plot.title }}</strong> ({{ plot.demensions.width }} x {{ plot.demensions.height }} ft)</h4>

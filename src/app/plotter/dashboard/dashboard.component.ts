@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {}
 
-  openPlotForm(plot: Plot) {
+  openPlotForm(plot?: Plot) {
     const dialogRef = this.dialog.open(PlotFormComponent, {
       width: '960px',
       data: plot ? plot : null,
