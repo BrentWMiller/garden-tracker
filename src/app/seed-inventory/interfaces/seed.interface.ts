@@ -1,3 +1,4 @@
 export interface Seed {
-  title: string;
+  name: string;
+  description?: string;
 }
