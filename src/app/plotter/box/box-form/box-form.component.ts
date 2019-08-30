@@ -13,6 +13,7 @@ export class BoxFormComponent implements OnInit {
 
   form = this.fb.group({
     title: [this.data.title ? this.data.title : ''],
+    color: [this.data.color ? this.data.color : ''],
   });
 
   constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<BoxFormComponent>, @Inject(MAT_DIALOG_DATA) public data: Box) {}
@@ -29,5 +30,9 @@ export class BoxFormComponent implements OnInit {
 
   save() {
     this.saveEvent.emit(this.value);
+  }
+
+  updateColor(event: string) {
+    this.value.color = event;
   }
 }

@@ -68,6 +68,7 @@ export class BoxComponent implements OnInit {
       title: event.title,
       x: this.currentPosition.x,
       y: this.currentPosition.y,
+      color: event.color,
     };
 
     this.updateBoxEvent.emit(this.box);

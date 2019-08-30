@@ -7,6 +7,15 @@
       <mat-label>Title</mat-label>
       <input matInput type="text" placeholder="Title" formControlName="title">
     </mat-form-field>
+
+    <input
+      formControlName="color"
+      [style.background]="color"
+      [colorPicker]="color"
+      cpOutputFormat="hex"
+      cpOKButton="true"
+      cpOKButtonText="Select"
+      (colorPickerSelect)="updateColor($event)"/>
     
   </mat-dialog-content>
 

@@ -33,11 +33,12 @@ export class GridComponent implements OnInit {
     await this.loadGrid();
   }
 
-  addBox(title: string, x: number, y: number) {
+  addBox(title: string, x: number, y: number, color: string) {
     this.boxes.push({
-      title,
+      title: title ? title : '',
       x,
       y,
+      color: color ? color : '',
     });
   }
 
@@ -47,15 +48,15 @@ export class GridComponent implements OnInit {
         const data = doc.data();
         const boxes = data.boxes;
 
-        this.title = data.title;
-        this.description = data.description;
+        this.title = data.title ? data.title : '';
+        this.description = data.description ? data.description : '';
 
         this.demensions.width = data.demensions.width * 50;
         this.demensions.height = data.demensions.height * 50;
 
         if (boxes) {
-          boxes.forEach((box) => {
-            this.addBox(box.title, box.x, box.y);
+          boxes.forEach((box: Box) => {
+            this.addBox(box.title, box.x, box.y, box.color);
           });
         }
       } else {
@@ -73,6 +74,7 @@ export class GridComponent implements OnInit {
       title: box.title,
       x: box.x,
       y: box.y,
+      color: box.color,
     };
 
     const boxIndex = this.boxes.indexOf(previousPosition);
@@ -81,9 +83,8 @@ export class GridComponent implements OnInit {
       this.boxes[boxIndex].x = box.x;
       this.boxes[boxIndex].y = box.y;
 
-      if (box.title) {
-        this.boxes[boxIndex].title = box.title;
-      }
+      this.boxes[boxIndex].title = box.title ? box.title : '';
+      this.boxes[boxIndex].color = box.color ? box.color : '';
     } else {
       this.boxes.push(updatedBox);
     }

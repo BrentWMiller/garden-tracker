@@ -11,19 +11,13 @@ import { AuthService } from './services/auth.service';
 // components
 import { NavigationComponent } from './components/navigation/navigation.component';
 
+// 3rd party
+import { ColorPickerModule } from 'ngx-color-picker';
+
 @NgModule({
   declarations: [NavigationComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    MaterialModule,
-  ],
-  providers: [
-    AuthService,
-  ],
-  exports: [
-    MaterialModule,
-    NavigationComponent
-  ]
+  imports: [CommonModule, RouterModule, MaterialModule, ColorPickerModule],
+  providers: [AuthService],
+  exports: [MaterialModule, NavigationComponent, ColorPickerModule],
 })
-export class SharedModule { }
+export class SharedModule {}
