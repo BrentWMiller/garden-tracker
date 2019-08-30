@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Box Title</h2>
+<h2 mat-dialog-header>{{ value.title ? value.title : 'Box' }}</h2>
 
 <form [formGroup]="form" (ngSubmit)="save()">
   <mat-dialog-content>
