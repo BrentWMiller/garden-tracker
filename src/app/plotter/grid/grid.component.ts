@@ -7,6 +7,7 @@ import { PlotterService } from '../plotter.service';
 // interfaces
 import { Box } from '../interfaces/box.interface';
 import { PlotDemensions } from '../interfaces/plot.interface';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'gt-grid',
@@ -20,7 +21,7 @@ export class GridComponent implements OnInit {
   demensions: PlotDemensions;
   boxes: Array<Box> = [];
 
-  constructor(private plotterService: PlotterService, private route: ActivatedRoute) {
+  constructor(private db: AngularFirestore, private plotterService: PlotterService, private route: ActivatedRoute) {
     this.pid = this.route.snapshot.params.pid;
 
     this.demensions = {
@@ -33,8 +34,13 @@ export class GridComponent implements OnInit {
     await this.loadGrid();
   }
 
-  addBox(title: string, x: number, y: number, color: string) {
+  addNewBox() {
+    this.addBox(this.db.createId(), '', 0, 0, '#ffffff');
+  }
+
+  addBox(id: string, title: string, x: number, y: number, color: string) {
     this.boxes.push({
+      id: id,
       title: title ? title : '',
       x,
       y,
@@ -43,7 +49,7 @@ export class GridComponent implements OnInit {
   }
 
   async loadGrid() {
-    await this.plotterService.loadGrid(this.pid).subscribe((doc) => {
+    this.plotterService.loadGrid(this.pid).subscribe((doc) => {
       if (doc.exists) {
         const data = doc.data();
         const boxes = data.boxes;
@@ -56,7 +62,8 @@ export class GridComponent implements OnInit {
 
         if (boxes) {
           boxes.forEach((box: Box) => {
-            this.addBox(box.title, box.x, box.y, box.color);
+            const id = box.id ? box.id : this.db.createId();
+            this.addBox(id, box.title, box.x, box.y, box.color);
           });
         }
       } else {
@@ -71,6 +78,7 @@ export class GridComponent implements OnInit {
 
   updateBox(box: Box, previousPosition: any) {
     const updatedBox = {
+      id: box.id,
       title: box.title,
       x: box.x,
       y: box.y,
@@ -88,5 +96,10 @@ export class GridComponent implements OnInit {
     } else {
       this.boxes.push(updatedBox);
     }
+  }
+
+  removeBox(id: string) {
+    const indexToRemove = this.boxes.findIndex((box) => box.id === id);
+    this.boxes.splice(indexToRemove, 1);
   }
 }
