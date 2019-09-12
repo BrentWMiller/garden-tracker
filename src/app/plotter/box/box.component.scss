@@ -25,11 +25,14 @@
   }
 
   &:hover {
+    z-index: 2;
+
     &:after {
       pointer-events: auto;
     }
 
     #{$this}__action {
+      z-index: 1;
       opacity: 1;
       pointer-events: auto;
 
@@ -44,6 +47,7 @@
   }
   &__action {
     position: absolute;
+    z-index: 2;
     padding: 5px;
     background-color: map-get($md-accent, 500);
     border-radius: 100%;
