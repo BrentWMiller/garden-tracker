@@ -102,4 +102,8 @@ export class GridComponent implements OnInit {
     const indexToRemove = this.boxes.findIndex((box) => box.id === id);
     this.boxes.splice(indexToRemove, 1);
   }
+
+  copyBox(box: Box) {
+    this.addBox(this.db.createId(), box.title, 0, 0, box.color);
+  }
 }
