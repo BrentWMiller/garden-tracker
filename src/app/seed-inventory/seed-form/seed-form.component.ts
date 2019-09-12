@@ -24,8 +24,8 @@ export class SeedFormComponent implements OnInit {
   @ViewChild('autosize', { static: false }) autosize: CdkTextareaAutosize;
 
   form = this.fb.group({
-    name: [this.data.seed.name ? this.data.seed.name : '', Validators.required],
-    description: this.data.seed.description ? this.data.seed.description : '',
+    name: [this.data.seed ? this.data.seed.name : '', Validators.required],
+    description: this.data.seed ? this.data.seed.description : '',
   });
 
   constructor(private fb: FormBuilder, private ngZone: NgZone, @Inject(MAT_DIALOG_DATA) public data: SeedFormData) {}

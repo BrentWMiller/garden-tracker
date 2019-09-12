@@ -19,11 +19,11 @@ export class PlotFormComponent implements OnInit {
   @Output() saveEvent: any = new EventEmitter();
 
   form = this.fb.group({
-    title: [this.data.plot.title ? this.data.plot.title : '', Validators.required],
-    description: this.data.plot.description ? this.data.plot.description : '',
+    title: [this.data.plot ? this.data.plot.title : '', Validators.required],
+    description: this.data.plot ? this.data.plot.description : '',
     demensions: this.fb.group({
-      width: [this.data.plot.demensions.width ? this.data.plot.demensions.width : '', Validators.required],
-      height: [this.data.plot.demensions.height ? this.data.plot.demensions.height : '', Validators.required],
+      width: [this.data.plot ? this.data.plot.demensions.width : '', Validators.required],
+      height: [this.data.plot ? this.data.plot.demensions.height : '', Validators.required],
     }),
   });
 
