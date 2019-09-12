@@ -4,5 +4,6 @@
   (cdkDragEnded)="dragEnd($event)"
   [style.transform]="transform">
 
-  <mat-icon class="box__edit" (click)="editBox()">edit</mat-icon>
+  <mat-icon class="box__action box__action--edit" (click)="editBox()">edit</mat-icon>
+  <mat-icon class="box__action box__action--remove" (click)="removeBox()">close</mat-icon>
 </div>

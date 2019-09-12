@@ -29,16 +29,21 @@
       pointer-events: auto;
     }
 
-    #{$this}__edit {
+    #{$this}__action {
       opacity: 1;
       pointer-events: auto;
-      transform: translate3d(-26px, -26px, 0);
+
+      &--edit {
+        transform: translate3d(-26px, -26px, 0);
+      }
+
+      &--remove {
+        transform: translate3d(8px, -38px, 0);
+      }
     }
   }
-
-  &__edit {
+  &__action {
     position: absolute;
-    transform: translate3d(-32px, -32px, 0);
     padding: 5px;
     background-color: map-get($md-accent, 500);
     border-radius: 100%;
@@ -48,6 +53,14 @@
 
     &:hover {
       cursor: pointer;
+    }
+
+    &--edit {
+      transform: translate3d(-32px, -32px, 0);
+    }
+
+    &--remove {
+      transform: translate3d(4px, -34px, 0);
     }
   }
 }
