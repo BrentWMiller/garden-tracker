@@ -1,4 +1,5 @@
 <div class="box"
+  [style.backgroundColor]="box.color"
   cdkDrag
   cdkDragBoundary=".grid__boundary"
   (cdkDragEnded)="dragEnd($event)"
