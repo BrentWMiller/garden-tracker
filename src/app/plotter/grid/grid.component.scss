@@ -11,7 +11,7 @@ $action-bar: 75px;
   background-color: $color-bg;
 
   &__container {
-    overflow: auto;
+    overflow: visible;
     max-width: 100vw;
     max-height: calc(100vh - 56px - #{$action-bar});
     margin: 0 auto;
