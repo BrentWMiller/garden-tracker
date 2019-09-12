@@ -2,7 +2,15 @@
   
   <div class="grid__container">
     <div class="grid__boundary" [style.width.px]="demensions?.width" [style.height.px]="demensions?.height">
-      <gt-box *ngFor="let box of boxes; let i = index" [box]="boxes[i]" [position]="box" [index]="i" [pid]="pid" (updateBoxEvent)="updateBox($event, box)"></gt-box>
+      <gt-box
+        *ngFor="let box of boxes; let i = index"
+        [box]="boxes[i]"
+        [position]="box"
+        [index]="i"
+        [pid]="pid"
+        (removeBoxEvent)="removeBox($event)"
+        (updateBoxEvent)="updateBox($event, box)">
+      </gt-box>
     </div>
   </div>
 </div>
@@ -18,7 +26,7 @@
     </div>
 
     <div class="grid__bar-actions">
-      <button mat-flat-button type="button" (click)="addBox(null, 0, 0)">Add Box</button>
+      <button mat-flat-button type="button" (click)="addNewBox()">Add Box</button>
       <button mat-flat-button color="accent" type="button" (click)="saveGrid()">Save Grid</button>
     </div>
 

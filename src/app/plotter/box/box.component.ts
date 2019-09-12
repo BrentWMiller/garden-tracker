@@ -18,6 +18,7 @@ export class BoxComponent implements OnInit {
   @Input() pid: string;
   @Input() box: Box;
   @Output() updateBoxEvent: any = new EventEmitter();
+  @Output() removeBoxEvent: any = new EventEmitter();
 
   currentPosition: any;
   initialPosition: any;
@@ -63,8 +64,13 @@ export class BoxComponent implements OnInit {
     });
   }
 
+  removeBox() {
+    this.removeBoxEvent.emit(this.box.id);
+  }
+
   async saveBoxDetails(event: any) {
     this.box = {
+      id: event.id,
       title: event.title,
       x: this.currentPosition.x,
       y: this.currentPosition.y,
