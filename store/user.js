@@ -12,6 +12,9 @@ export const getters = {
     } catch {
       return false;
     }
+  },
+  uid: state => {
+    return state.user.uid;
   }
 };
 
@@ -22,9 +25,7 @@ export const mutations = {
   SET_USER(state, user) {
     state.user = {
       uid: user.uid,
-      email: user.email,
-      avatar: user.photoURL,
-      displayName: user.displayName
+      email: user.email
     };
   },
   SET_TOKEN(state, token) {
