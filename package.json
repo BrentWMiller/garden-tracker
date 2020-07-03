@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "debug": "nuxt --open",
     "build": "nuxt build",
     "start": "nuxt start",
     "export": "nuxt export",
@@ -13,8 +13,10 @@
     "@nuxtjs/firebase": "^6.1.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "firebase": "^7.15.5",
+    "lodash": "^4.17.15",
     "nuxt": "^2.13.0",
-    "nuxt-webfontloader": "^1.1.0"
+    "nuxt-webfontloader": "^1.1.0",
+    "vuelidate": "^0.7.5"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^2.0.0"
