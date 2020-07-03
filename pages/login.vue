@@ -1,5 +1,7 @@
 <template>
-  <div class="container">Login</div>
+  <div class="container">
+    <user-login-form />
+  </div>
 </template>
 
 <script>
