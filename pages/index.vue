@@ -1,12 +1,18 @@
 <template>
-  <div class="container">
-    <div>
-      <h1 class="title">
-        garden-tracker
-
-        <seed-list />
+  <div>
+    <div class="container p-6 pt-8">
+      <h1>
+        <span class="font-normal tracking-wide text-primary-700"
+          >Good afternoon,</span
+        ><br />
+        <span class="block font-bold text-24">Brent</span>
       </h1>
+      <div>
+        <plant-list />
+      </div>
     </div>
+
+    <the-navbar></the-navbar>
   </div>
 </template>
 
@@ -14,4 +20,8 @@
 export default {};
 </script>
 
-<style></style>
+<style>
+body {
+  @apply font-nunito;
+}
+</style>
