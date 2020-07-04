@@ -23,6 +23,22 @@ module.exports = {
           A200: "#bcfdef",
           A400: "#87ffe4",
           A700: "#6effdf"
+        },
+        secondary: {
+          50: "#fff2e0",
+          100: "#ffdeb3",
+          200: "#ffc880",
+          300: "#ffb24d",
+          400: "#ffa226",
+          500: "#ff9100",
+          600: "#ff8900",
+          700: "#ff7e00",
+          800: "#ff7400",
+          900: "#ff6200",
+          A100: "#ffffff",
+          A200: "#fff6f2",
+          A400: "#ffd4bf",
+          A700: "#ffc2a6"
         }
       },
       fontSize: {
