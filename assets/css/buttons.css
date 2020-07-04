@@ -1,0 +1,9 @@
+.button {
+  @apply px-6 py-4;
+  @apply font-bold;
+  @apply border rounded-xl border-primary-500;
+
+  &:hover {
+    @apply bg-primary-100;
+  }
+}
