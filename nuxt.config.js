@@ -31,7 +31,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["@/assets/css/buttons.css"],
+  css: ["@/assets/css/scaffolding.css", "@/assets/css/buttons.css"],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins

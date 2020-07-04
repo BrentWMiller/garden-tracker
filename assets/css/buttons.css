@@ -1,6 +1,6 @@
 .button {
   @apply px-6 py-4;
-  @apply font-bold;
+  @apply font-bold tracking-wide;
   @apply border rounded-xl border-primary-500;
 
   &:hover {

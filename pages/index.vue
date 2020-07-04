@@ -20,8 +20,4 @@
 export default {};
 </script>
 
-<style>
-body {
-  @apply font-nunito;
-}
-</style>
+<style></style>
