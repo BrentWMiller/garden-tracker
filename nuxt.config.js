@@ -31,7 +31,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["@/assets/css/buttons.css"],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -63,7 +63,7 @@ export default {
   },
   webfontloader: {
     google: {
-      families: ["Nunito:300,400,500,700"]
+      families: ["Nunito:500,600,600i,700,700i,800,800i,900,900i"]
     }
   },
   firebase: {
