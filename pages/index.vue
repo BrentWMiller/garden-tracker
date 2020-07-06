@@ -8,8 +8,6 @@
         <span class="block font-bold text-24">Brent</span>
       </h1>
     </div>
-
-    <the-navbar></the-navbar>
   </div>
 </template>
 

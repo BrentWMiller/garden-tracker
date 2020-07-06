@@ -1,8 +1,11 @@
 <template>
   <div>
-    <Nuxt />
-    <the-navbar></the-navbar>
+    Plants
   </div>
 </template>
+
+<script>
+export default {};
+</script>
 
 <style></style>

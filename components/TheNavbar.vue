@@ -14,6 +14,10 @@ export default {
     return {
       links: [
         {
+          uri: "/",
+          title: "Dashboard"
+        },
+        {
           uri: "/gardens",
           title: "Gardens"
         },
