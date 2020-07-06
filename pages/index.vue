@@ -7,8 +7,6 @@
         ><br />
         <span class="block font-bold text-24">Brent</span>
       </h1>
-      <garden-list />
-      <plant-list />
     </div>
 
     <the-navbar></the-navbar>
