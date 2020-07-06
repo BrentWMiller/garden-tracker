@@ -1,7 +1,7 @@
 .button {
   @apply px-5 py-2;
   @apply font-bold tracking-wide text-black;
-  @apply bg-white border border-black rounded-xl;
+  @apply bg-white border border-black rounded-sm;
 
   &:hover {
     @apply text-white;
