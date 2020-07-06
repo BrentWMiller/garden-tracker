@@ -12,7 +12,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  layout: "dashboard"
+};
 </script>
 
 <style></style>
