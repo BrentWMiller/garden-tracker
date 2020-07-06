@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: "TheNavbar",
   data: function() {
     return {
       links: [
