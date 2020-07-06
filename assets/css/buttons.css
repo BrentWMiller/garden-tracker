@@ -1,9 +1,15 @@
 .button {
-  @apply px-6 py-4;
-  @apply font-bold tracking-wide;
-  @apply border rounded-xl border-primary-500;
+  @apply px-5 py-2;
+  @apply font-bold tracking-wide text-black;
+  @apply bg-white border border-black rounded-xl;
 
   &:hover {
-    @apply bg-primary-100;
+    @apply text-white;
+    @apply bg-black;
+  }
+
+  &-primary {
+    @apply text-white;
+    @apply bg-black border-black;
   }
 }
