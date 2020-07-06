@@ -1,5 +1,8 @@
 <template>
-  <button class="button">Default Button</button>
+  <div>
+    <button class="button">Default Button</button>
+    <button class="button button-primary">Primary Button</button>
+  </div>
 </template>
 
 <script>
