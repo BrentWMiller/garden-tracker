@@ -2,25 +2,33 @@
   <div>
     <div v-if="loginError" class="text-red-500">{{ loginError }}</div>
     <form @submit.prevent="login">
-      <label for="email">Email</label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        autocomplete="username"
-        v-model.trim="$v.form.email.$model"
-      />
+      <div>
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          autocomplete="username"
+          v-model.trim="$v.form.email.$model"
+        />
+      </div>
 
-      <label for="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        autocomplete="password"
-        v-model="$v.form.password.$model"
-      />
+      <div>
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          autocomplete="password"
+          v-model="$v.form.password.$model"
+        />
+      </div>
 
-      <button type="submit" :disabled="$v.form.$invalid || loading">
+      <button
+        class="button"
+        type="submit"
+        :disabled="$v.form.$invalid || loading"
+      >
         Login
       </button>
     </form>
